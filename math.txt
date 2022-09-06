@@ -29,6 +29,8 @@
 28-Determine if the point is inside ,outsid or on the boundary in a circle
 29- to see if 2 circles intersect or no
 30-check if the number is power of 2
+31-area of hexagonal shape=(3*sqrt(3)/2)*r*r
+32-circle perimeter=2*pi*r;//pi=acos(-1)
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
