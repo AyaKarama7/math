@@ -120,6 +120,7 @@ ll GCD(ll a,ll b)
     if(b==0)return a;
     return GCD(b,a%b);
 }
+if(GCD(a,b)=x,LCM(a,b)=y)---->GCD(x,y)=a,LCM(x,y)=b
 ***********************************************************************************************************
 5-LCM=(a*b)/GCD;
 -lcm=max repitation
