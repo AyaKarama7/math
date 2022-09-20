@@ -121,6 +121,8 @@ ll GCD(ll a,ll b)
     return GCD(b,a%b);
 }
 if(GCD(a,b)=x,LCM(a,b)=y)---->GCD(x,y)=a,LCM(x,y)=b
+problem:https://codeforces.com/group/wVejEOTOwS/contest/360183/problem/B
+any number consists of some primes--->so GCD will be product of sum primes -->24=2*2*2*3-->GCD=2-->4*2*3-->GCD=2-->4*6-->GCD=2-->2*12-->Gcd=2-->1*24-->gcd=1
 ***********************************************************************************************************
 5-LCM=(a*b)/GCD;
 -lcm=max repitation
