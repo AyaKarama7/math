@@ -31,6 +31,7 @@
 30-check if the number is power of 2
 31-area of hexagonal shape=(3*sqrt(3)/2)*r*r
 32-circle perimeter=2*pi*r;//pi=acos(-1)
+33-Count number of devisors
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -332,6 +333,12 @@ while(n!=1)
     if(is)cout<<"YES\n";
 *Geometry:https://www.mathsisfun.com/geometry/plane-geometry.html
 *long long =evry number <1e19
+*****************************************************************************************************
+33-count number of devisors:
+24-->2*2*2*3=2^3*3^1-->prime factors
+prime factors for a number=2^a*3^b*4^c........
+number of devisors=(a+1)*(b+1)*(c+1)...
+use prime factor coe to solve problems of this tybe -->3
 
 
 
