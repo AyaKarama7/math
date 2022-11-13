@@ -32,6 +32,7 @@
 31-area of hexagonal shape=(3*sqrt(3)/2)*r*r
 32-circle perimeter=2*pi*r;//pi=acos(-1)
 33-Count number of devisors
+34-find the sum of numbers from 1 to n that aren't devisable by a ,b
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -339,6 +340,60 @@ while(n!=1)
 prime factors for a number=2^a*3^b*4^c........
 number of devisors=(a+1)*(b+1)*(c+1)...
 use prime factor coe to solve problems of this tybe -->3
+*****************************************************************************************************
+34-find the sum of numbers from 1 to n that aren't devisable by a ,b:
+ tests: 10 2 4  --->تزكر ان بعض الارقام قد تطرح مرتين جرب هظا المثال
+ll first(ll n,ll m)
+{
+    ll r=n%m;
+    return n-r;
+}
+ll last(ll n,ll m)
+{
+    ll r=(n+m)%m;
+    return n+m-r;
+}
+int main() {
+    IOS;
+    //a
+    ll suma=0;
+    if(a<=n)
+    {
+        ll f=first(1,a);
+        ll l=last(n,a);
+        if(f<1)f+=a;
+        if(l>n)l-=a;
+        ll cnt=l / a - (f - 1)/ a;
+        suma=cnt * (f+l)/2;
+    }
+    //b 
+    ll sumb=0;
+    if(b<=n)
+    {
+        ll f=first(1,b);
+        ll l=last(n,b);
+        if(f<1)f+=b;
+        if(l>n)l-=b;//10
+        ll cnt=l / b - (f - 1)/ b;//2-0
+        sumb=cnt * (f+l)/2;//2(15/2)
+    }
+    ll c=a*b/__gcd(a,b);//6 
+    //c 
+    ll sumc=0;
+    if(c<=n)
+    {
+        ll f=first(1,c);
+        ll l=last(n,c);
+        if(f<1)f+=c;
+        if(l>n)l-=c;
+        ll cnt=l / c - (f - 1)/ c;
+        sumc=cnt * (f+l)/2;
+    }
+    ll sum=n*(n+1)/2;
+    //cout<<sum<<' '<<suma<<' '<<sumb<<' '<<sumc<<'\n';
+    cout<<sum-suma-sumb+sumc;
+    }
+   
 
 
 
