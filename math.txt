@@ -297,6 +297,7 @@ sum =firstNum*(base^numberOfnumbers -1)/(base -1)=137 -13 -1=1093
 25-Area of a triangle=sqrt(s*(s-a)*(s-b)*(s-c));//s=(a+b+c)/2;
 *******************************************************************************************************
 26-to prove the shape is a triangle :the sum of the two smallest sides should be greater than the other side.
+   to prove the shape is a non-degenerate triangle --->a+b>c and a+c>b and b+c>a
 *******************************************************************************************************
 27-you have two points a(x1,y1),b(x2,y2):
 -Slope = (y2 - y1) / (x2 - x1) ;
