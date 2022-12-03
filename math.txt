@@ -35,6 +35,7 @@
 34-find the sum of numbers from 1 to n that aren't devisable by a ,b
 35-for big power (>32)use fastpower
 36-find a fraction that can be dividable by 2 other fractions (fc%fa==0&&fc%fb==0)
+37-check if a number is T-prime (divisble by exactly 3 numbers)
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -431,6 +432,12 @@ y=__gcd(المقام)
 x=(2*4)/__gcd(2,4);
 y=__gcd(3,5)
 c=4/1
+**********************************************************************************************************************************************************
+37-check if a number is T-prime (divisble by exactly 3 numbers):
+25---->1 25 5-->sqrt(25)
+36---->1 36 6-->sqrt(36) 2 3 -->6=2*3
+so, for a number to be T-prime it should be divsible by 1, the number itself,and sqrt(number),but sqrt(number)should be prime.
+**********************************************************************************************************************************************************
 
 
 
