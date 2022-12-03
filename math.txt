@@ -37,6 +37,7 @@
 36-find a fraction that can be dividable by 2 other fractions (fc%fa==0&&fc%fb==0)
 37-check if a number is T-prime (divisble by exactly 3 numbers)
 38-log usage (int big power,big product(multiplication)
+39-find the time at which 2 squares intersect at area=q
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -447,6 +448,11 @@ so, for a number to be T-prime it should be divsible by 1, the number itself,and
 =a^b=c^d-->b*log(a)=d*log(c)
 problem:https://codeforces.com/group/MWSDmqGsZm/contest/223340/problem/G
 *********************************************************************************************************************************************************
-
+39-find the time at which 2 squares intersect at area=q:
+time=sqrt(2)*(l-sqrt(q))/(s2-s1),where:
+l=طول ضلع المربعين
+s2=سرعة المربع التاني
+s1=سرغة المربع الاول
+************************************************************************************************************************************************************
 
 
