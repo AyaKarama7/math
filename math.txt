@@ -34,6 +34,7 @@
 33-Count number of devisors
 34-find the sum of numbers from 1 to n that aren't devisable by a ,b
 35-for big power (>32)use fastpower
+36-find a fraction that can be dividable by 2 other fractions (fc%fa==0&&fc%fb==0)
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -422,7 +423,14 @@ int main() {
 	}
 	return res;
    }
-
+*****************************************************************************************************************************************************
+36-find a fraction that can be dividable by 2 other fractions (fc%fa==0&&fc%fb==0):
+a=2/3  b=4/5  c=x/y 
+x=lcm(البسط)
+y=__gcd(المقام)
+x=(2*4)/__gcd(2,4);
+y=__gcd(3,5)
+c=4/1
 
 
 
