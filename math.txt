@@ -185,7 +185,22 @@ bool isPrime(int n)//O(sqrt(n))
  
     return true;
 }
+-recursivly:
+bool is_prime(int m, int cur_test_number = 3) {
+	if (m == 2)
+		return true;
 
+	if (m <= 1 || m % 2 == 0)
+		return false;
+
+	if (m == cur_test_number)
+		return true;
+
+	if (m % cur_test_number == 0)
+		return false;
+
+	return is_prime(m, cur_test_number + 1);
+}
 ***********************************************************************************************************
 9-sum of even numbers from l to r:
 n = ((maxeven - mineven) / 2) + 1;//in range 
