@@ -69,6 +69,28 @@
         res+=x;
         res%=b;
 if(res=0)-->yes
+-there are 3 ways to calculate modular arthmatic:
+:r=a-n(a/n)
+:%
+:while(a>=n)n-=a; while(a<0)a+=n;
+◼ If a%n == b%n => (a-b)%n = 0
+◼ largest n such that a%n = b%n is n = b-a
+◼ -a%n != a%n => (3 %12 = 3 vs -3 %12 = 9)
+◼ ((-a%n)+(a%n))%n = 0
+◼ (a+b) % n = (a%n + b%n) % n 
+◼ (a+b+c+d)%n?
+◼ You can take mod of every one and sum
+◼ or ((((a%n+(b%n))%n+c%n)%n+d%n)%n
+◼ x % (a+b) != x % a + x %b
+◼ x%10 [the last digit]. x/10 [remove last digit]
+◼ (a^b) % n = ((a%n)^b) % n
+◼ (a^b) % n => assume b even and x = b/2
+◼ ( (a^x) % n * (a^x) % n)%n
+◼ (1/a) % n ? modular multiplicative inverse
+◼ ( (a*b) % n * (1/a)%n) %n = b % n
+◼ a % (2^n) = a & (n-1) => E.g. a%4 = a&3
+◼ a % 0 is undefined
+◼ When -ve result => result = (result + n)%n
 **********************************************************************************************************
 2-Factorization:الارقام اللي رقم ما بيقبل القسمه عليهم
 =n%factor=0;
@@ -91,10 +113,11 @@ void factors(ll n)//O(sqrt(n))
 -The negative numbers is not a prime
 -any number=multiplication of sum primes
 -36=2*2*3*3
+-in case of we loop on seive prime vector coplexity in wortht case O(sqrt(n))-->n is prime 
 -code:
 void prime_factors(ll n)//O(sqrt(n)*log (n))
 {
-    for(int i=2;i*i<=n;i++)
+    for(int i=2;i*i<=n;i++)//we can loop on seive prime vector
     {
         while(n%i==0)
         {
@@ -114,6 +137,7 @@ void prime_factors(ll n)//O(sqrt(n)*log (n))
 =A=B*Q+m;
 =m=A-B*Q;
 =gcd(a,b)=gcd(b,a%b);
+=لما تلاقي gcdفكر في prime factorization
 -Iterative code:
 ll GCD(ll a,ll b)//better in memory
 {
@@ -132,8 +156,10 @@ ll GCD(ll a,ll b)
     return GCD(b,a%b);
 }
 if(GCD(a,b)=x,LCM(a,b)=y)---->GCD(x,y)=a,LCM(x,y)=b
+if(GCD(x/a,y/b))--->min value of a*b=gcd(x,y)
 problem:https://codeforces.com/group/wVejEOTOwS/contest/360183/problem/B
 any number consists of some primes--->so GCD will be product of sum primes -->24=2*2*2*3-->GCD=2-->4*2*3-->GCD=2-->4*6-->GCD=2-->2*12-->Gcd=2-->1*24-->gcd=1
+*if we have: f(m)=(m%a)+(m%b)+(m%c).... then max f=a-1+b-1+c-1+....
 ***********************************************************************************************************
 5-LCM=(a*b)/GCD;
 -lcm=max repitation
