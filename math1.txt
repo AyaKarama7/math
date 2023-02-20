@@ -1,0 +1,242 @@
+1-fast power
+2-calculate sum of consecutive powers (x^1+x^2+x^3+x^4+....+x^n) in O(log(n)*log(n))
+3-to avoid intermidiate overflow
+4-find divisors in sqrt(n)
+5-check prime in O(sqrt(n))
+6-seive
+7-round
+8-log
+9-reflection point
+10-factorial
+11-http://oeis.org/A000045 : موقع مهم جدا ممكن تكتب اي sequence وهو يقولك ممكن تتجاب ازاي
+12-circular permutation =npr/r
+13-we can get compenation using pascal triangle to avoid overflow and in quieries
+*******************************************************************************
+1-fast power:
+-recursive code:
+ll mod=1e9+7;
+ll fpow(ll n, ll p)//log(p)
+{
+    if(p==0)return 1%mod;
+    if(p==1)return n%mod;
+    ll ans=fpow(n,p/2);
+    ans=(ans%mod)*(ans%mod)%mod;
+    if(p&1)ans=(ans%mod)*(n%mod)%mod;
+    return ans;
+}
+
+-optimized(better code):
+void idea()
+{
+    /*
+        power=19 --binary--->16+2+1 --->1 0 0 1 1 
+        1   0   0   1   1 
+        2^4 2^3 2^2 2^1 2^0 
+        power=5 --binary--->1+4 --->101 n=2 
+        1    0    1 
+        2^2  2^1  2^0 
+        16*1 4*0 2*1
+        32=16*1 * 2*1
+    */
+}
+ll mod=1e9+7;
+ll fpow(ll n, ll p) //log(p)
+{
+    ll res=1;
+    while(p)
+    {
+        if(p&1)res=(res%mod)*(n%mod)%mod;//digit in binary =1 
+        n=(n%mod)*(n%mod)%mod;//move to next digit in binary 
+        p/=2;
+    }
+    return res;
+}
+*******************************************************************************
+2-calculate sum of consecutive powers (x^1+x^2+x^3+x^4+....+x^n) in O(log(n)*log(n)): //Ecpc
+ll sum_cons_pows(ll p,ll n)
+{
+    if(p==1)return n;
+    ll ans=sum_cons_pows(p/2,n);
+    ans+=(ans*fpow(p/2,n));
+    if(p&1)ans+=fpow(p,n);
+    return ans;
+}
+********************************************************************************
+3-to avoid intermidiate overflow:
+if you do some operations that may cause overflow ,but you are sure that the final result can't cause over flow ,and 
+you know max value (x) the final result can be,how can you solve this issue??
+take all values while doing operations %(x+1)
+-x=12 (operations)=12---->operations%13=12%13=12
+
+********************************************************************************
+4-find divisors in sqrt(n):
+vector<int> divisors(int n)
+{
+    vector<int>divi;
+    for(int i=1;i*i<=n;i++)
+    {
+        if(n%i==0)
+        {
+            divi.push_back(i);
+            if(n/i!=i)divi.push_back(n/i);
+        }
+    }
+    return divi;
+}
+//why i*i<=n
+ x*x==n
+ y*z==n
+ where y<x && z>x inc z,dec y
+********************************************************************************
+5-check prime:
+-2^31-1 is the biggest int prime
+-2^61-1 is the biggest long long prime 
+-primesRangeCnt 10^i (4, 25, 168, 1229, 9592, 78498, 664579, 5761455) [e.g. 4 primes <= 10^1] ~= n / log(n)
+-number of primes in range n =n/log(n)  (allitle bigger)
+-in less than O(sqrt(n)):
+bool checkPrime(ll n)
+{
+    if(n<2)return 0;
+    for(int i=2;i*i<n;i++)
+    {
+        if(n%i==0)return 0;
+    }
+    return 1;
+}
+bool isPrime(int n)//less than O(sqrt(n))----------->better
+{
+    if (n <= 1)
+        return false;
+    if (n == 2 || n == 3)
+        return true;
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+    for (int i = 5; i*i <=n; i = i + 6)
+        {
+            if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+        }
+ 
+    return true;
+}
+-recursivly:
+bool is_prime(int m, int cur_test_number = 3) {
+	if (m == 2)
+		return true;
+
+	if (m <= 1 || m % 2 == 0)
+		return false;
+
+	if (m == cur_test_number)
+		return true;
+
+	if (m % cur_test_number == 0)
+		return false;
+
+	return is_prime(m, cur_test_number + 1);
+} 
+
+*******************************************************************************
+6-seive:find all prime number from 1 to n
+=reverse brute force approach
+=all elements are prime
+=take evrey prime number and make all its multibles not prime ,ex:
+   1 2 3 4 5 6 7 8 9 10 
+   0 1 1 1 1 1 1 1 1 1
+=take 2 
+   1 2 3 4 5 6 7 8 9 10 
+   0 1 1 0 1 0 1 0 1 0
+=take 3
+   1 2 3 4 5 6 7 8 9 10 
+   0 1 1 0 1 0 1 0 0 0
+=take 4:it's already not prime so all of it's multiples can't be prime
+-code:
+vector<bool>seieve(ll n)//n*log(log(n))-->n not sqrt(n) ; second loop can take n/i for evrey i 
+{
+    vector<bool>isPrime(n+1,1);
+    isPrime[0]=isPrime[1]=0;
+    for(int i=4;i<=n;i+=2)isPrime[i]=0;
+    for(int i=3;i*i<=n;i+=2)
+    {
+        if(isPrime[i])
+        {
+            for(int j=i+i;j<=n;j+=i)isPrime[j]=0;//6 9 12 15
+        }
+    }
+    return isPrime;
+}
+-optimized code:
+vector<bool>seieve(ll n)//faster than n*log(log(n)) about n -->n not sqrt(n) ; second loop can take n/i for evrey i 
+{
+    vector<bool>isPrime(n+1,1);
+    isPrime[0]=isPrime[1]=0;
+    for(int i=4;i<=n;i+=2)isPrime[i]=0;
+    for(int i=3;i*i<=n;i+=2)
+    {
+        if(isPrime[i])
+        {
+            for(int j=i*i;j<=n;j+=i+i)isPrime[j]=0;//9 15-->skip elements already visited so less steps 
+        }
+    }
+    return isPrime;
+}
+//if we have odd number we want to increase it to odd number--->3=3+2*3=9,9+2*3=15
+//زود بنفس ال priority
+**************************************************************************************************************
+7-round:
+-round:nearest int from x(halfcases away from 0),ex:3.2=3 3.5=4 3.7=4 -3.2=-3 -3.5=-4 -3.7=-4
+-trunc=remove fraction
+-floor:round down (you can see the diffrence between floor and trunc in negatives
+-ceil(x, y) = (x+y-1)/y
+-round(x, y) = (x+y/2)/y [if x > 0] and (x-y/2)/y [x < 0]
+-To round to multiple of a specified amount
+◼ round(x, m) = round(x / m) * m
+◼ round(48.2 seconds, 15) = 45 seconds
+◼ round(2.1784 dollars, 0.01 (1 cent) ) = 2.18 dollars
+**************************************************************************************************************
+8-log:
+-log is the inversion of pow/exponential
+-pow(x,y)=z-->logx(z)=y, ex:2^3=8 --->log2(8)=3
+-log10(x)          -log(x)          -log2(x)
+=in math lg(x)     =in math ln(x)   =in math lb(x)
+=common            =natural (e)     =binary
+-operations on log:
+*logb(xy)=logb(x)+logb(y)                        *logb(x)=logk(x)/logk(b)-->convert between bases
+*logb(x/y)=logb(x)-logb(y)                       *b=x^(1/logb(x))
+*logb(x^p)=p*logb(x)                             *logb(b) = 1, logb(1) = 0, logb(0) = -oo, log1(x) = undefined
+*logb(x^-p)=logb(x)/p                            *b^logb(x)=x  , xb^y=b^(logb(x) + y)
+-we can use this formula to know # of digits for a number x =1 + floor(logb(x))
+-number of digits in n! =1+floor(logb(n!))=1+floor(logb(1*2*...n))=1+floor(log(1)+log(2)+..log(n))
+****************************************************************************************************************
+9-reflection point:
+if you are given p(px,py) q(qx,qy).find r:reflection point of p accross q?
+solution:xr=qx*2-px  yr=qy*2-py
+****************************************************************************************************************
+10-factorial:
+-n!%x=0,where x<=n
+-Wilson's theorem: (p-1)!%p = p-1 IFF p is prime
+-2! is the only prime factorial
+-max x where n!%p^x==0:
+ =For each multiple M of p <= n:		1*p, 2*p, 3*p...			n/p times
+   while n%p != 0
+	cnt++
+	n /= p;
+
+ =Order: O(n/p)
+-how many multiples of p in n!:
+// Very important function
+int FactN_PrimePower(int n, int p) {		// O(log(n) base p)
+    int pow = 0;
+    for(int i = p; i <= n ; i = i * p)
+    	pow += n/i;
+
+    return pow;
+}
+-factorial factorization:get prime factorization for factorial
+1-seive on range n       2-FactN_PrimePower(n,p)for each prime number
+-find the first non zero digit in 123000????????
+ *123000=10^x*reminder  and reminder = the first non zero digit
+-find n where n! has m trailing zeros:
+ =by observation you can find that ans is in range from 0 to 5*n
+ =so binary search on the appropriate number in this range
+ =order O(log^2(n))
