@@ -3,7 +3,7 @@
 3-to avoid intermidiate overflow
 4-find divisors in sqrt(n)
 5-check prime in O(sqrt(n))
-6-seive
+6-seive & t-primes
 7-round
 8-log
 9-reflection point
@@ -182,6 +182,22 @@ vector<bool>seieve(ll n)//faster than n*log(log(n)) about n -->n not sqrt(n) ; s
 }
 //if we have odd number we want to increase it to odd number--->3=3+2*3=9,9+2*3=15
 //زود بنفس ال priority
+-to check if Numbere has 3 Divisors or NOt
+map<ll,bool>mp;
+    mp[0]=mp[1]=true;
+    for(ll i=2;i*i<=1e6;i++){
+        if(!mp[i]){
+            for(int j=i*i;j<=1e6;j+=i){
+                mp[j]=true;
+            }
+        }
+    }
+
+ll x; cin>>x;
+        ll z=(ll)sqrt(x);
+        if(z*z==x&&!mp[z])
+            cout<<"YES"<<endl;
+        else cout<<"NO"<<endl;
 **************************************************************************************************************
 7-round:
 -round:nearest int from x(halfcases away from 0),ex:3.2=3 3.5=4 3.7=4 -3.2=-3 -3.5=-4 -3.7=-4
