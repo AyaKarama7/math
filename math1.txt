@@ -11,6 +11,7 @@
 11-http://oeis.org/A000045 : موقع مهم جدا ممكن تكتب اي sequence وهو يقولك ممكن تتجاب ازاي
 12-circular permutation =npr/r
 13-we can get compenation using pascal triangle to avoid overflow and in quieries
+14-in compering double x,y don't say x>y but x-y >(1/1e10) or (y-x>1/e10)..
 *******************************************************************************
 1-fast power:
 -recursive code:
