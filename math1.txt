@@ -12,6 +12,7 @@
 12-circular permutation =npr/r
 13-we can get compenation using pascal triangle to avoid overflow and in quieries
 14-in compering double x,y don't say x>y but x-y >(1/1e10) or (y-x>1/e10)..
+15-calculate angel between the 2 hands of a clock (hours and minutes)
 *******************************************************************************
 1-fast power:
 -recursive code:
@@ -257,3 +258,12 @@ int FactN_PrimePower(int n, int p) {		// O(log(n) base p)
  =by observation you can find that ans is in range from 0 to 5*n
  =so binary search on the appropriate number in this range
  =order O(log^2(n))
+********************************************************************************************************************
+15-calculate angel between the 2 hands of a clock (hours and minutes):
+calculate position of hours hand=(h*60+m)*0.5;//evrey minute hours hand move 0.5 degree so we multiply in 0.5 after converting hours to minutes
+calculate position of minutes hand=m*6;//evrey minute minutes hand move 6 degree so we multiply in 6
+angel=abs(p1-p2)
+ans=min(360-angel,angel);
+*m is the minutes 12:46
+*total number of degrees in clock =360
+*for more information see this problem:https://codeforces.com/group/MEqF8b6wBT/contest/434644/problem/B
