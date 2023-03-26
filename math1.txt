@@ -13,6 +13,7 @@
 13-we can get compenation using pascal triangle to avoid overflow and in quieries
 14-in compering double x,y don't say x>y but x-y >(1/1e10) or (y-x>1/e10)..
 15-calculate angel between the 2 hands of a clock (hours and minutes)
+16-c(n,r)=factorial(n-1,r)+(n,r-1)
 *******************************************************************************
 1-fast power:
 -recursive code:
