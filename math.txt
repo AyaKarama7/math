@@ -163,6 +163,9 @@ any number consists of some primes--->so GCD will be product of sum primes -->24
 ***********************************************************************************************************
 5-LCM=(a*b)/GCD;
 -lcm=max repitation
+-if lcm(a,b)=x and you have x and need to find a,b -->max is min
+-find devisors for each 2 devisors check the conditions
+-24-->(1,24) (2,12) (3,8) (4,6)-->ans=3 8 as the lcm(3,8)=24 and max(3,8) is min possible
 ***********************************************************************************************************
 6-compenations
 unsigned long long nCr(int n, int r) {
