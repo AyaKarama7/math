@@ -42,6 +42,7 @@
 41-avoid using float
 42-0.5(6)=0.5666666666...,0.5(0)=0.5000... or 0.5
 43-non-dgenerated triangle :a+b>c&&a+c>b&&b+c>a--->sort then check every conscutive 3 
+44-number of distinct pairs = k between mn,mx is = (mx-mn+1)/2
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
