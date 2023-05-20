@@ -93,6 +93,17 @@ if(res=0)-->yes
 ◼ a % (2^n) = a & (n-1) => E.g. a%4 = a&3
 ◼ a % 0 is undefined
 ◼ When -ve result => result = (result + n)%n
+=Inverse mod:
+ll po(ll x,ll n){
+    ll res = 1;
+    while(n){
+        if(n&1)res = res*x%mod;
+        x=x*x%mod;
+        n/=2;
+    }
+    return res%mod;
+}
+ll inv(ll x,ll n){return po(x,n-2);}
 **********************************************************************************************************
 2-Factorization:الارقام اللي رقم ما بيقبل القسمه عليهم
 =n%factor=0;
