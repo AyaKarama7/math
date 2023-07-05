@@ -50,6 +50,13 @@
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
 *********************************************************************************************************
 1-modular arthmatic:
+*a=d*m+r  ---> a%m ,d:number after removing r r:reminder
+*in convert to binary bases:
+//a=m*d+r  ---> 1
+    //r in negative as in positive but d is diffrent
+    //in pos a d=n/m
+    //in neg a & from 1 -->d=(a-r)/m
+    //in general d=(a-r)/m
 =0%1=0;
 =1%0=math error;
 =1%1=0;
