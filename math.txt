@@ -45,6 +45,7 @@
 43-non-dgenerated triangle :a+b>c&&a+c>b&&b+c>a--->sort then check every conscutive 3 
 44-number of distinct pairs = k between mn,mx is = (mx-mn+1)/2
 45-2 cells in a matrix can be in the same diagonal if : x1-y1==x2-y2 OR x1+y1==x2+y2
+46-to count how many integer points in the circle
 -TRY MANY TESTS
 -sum important laws //you can find them also in #6-Math.pdf
 -sheet link including some important ideas: https://codeforces.com/group/MWSDmqGsZm/contest/223338
@@ -541,5 +542,10 @@ l=طول ضلع المربعين
 s2=سرعة المربع التاني
 s1=سرغة المربع الاول
 ************************************************************************************************************************************************************
+46-to count how many integer points in the circle:
+x^2+y^2=r^2
+1-loop from 1 to r -->x and get y from previous formula
+2-ans+=y
+2- ans+(4*r+1)
 
 
